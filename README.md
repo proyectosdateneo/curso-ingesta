@@ -109,7 +109,7 @@ Esto genera la estructura:
 2. Creamos una función `cargar_tabla_unica` tomando como referencia `load_select_tables_from_database` de `sql_database_pipeline.py`
 3. Modificamos las credenciales en `secrets.toml`
 4. Momento de instalar más librerías, en `requirements.txt` dlt nos dejó los paquetes que va a utilizar, además como vamos a conectarnos a Postgres, la librería que utiliza dltHub por detrás (SQL Alchemy) necesita un paquete adicional, lo agregamos al archivo:
-```toml
+```
 psycopg2-binary>=2.9.0
 ```
 5. Ejecutamos:
@@ -123,7 +123,7 @@ pip install -r requirements.txt
 python tutorial_dlthub.py
 ```
 
-2. Podemos chequear el destino (tutorial_dlt.duckdb) con dbeaver
+2. Si el pipeline ejecutó bien, podemos chequear el destino (tutorial_dlt.duckdb) con DBeaver y allí deberíamos ver una tabla `cursos` dentro del esquema `replica`.
 
 3. Si volvemos a ejecutar tenemos que ver la misma cantidad de registros porque el write-disposition es replace. [Documentación de write_disposition](https://dlthub.com/docs/general-usage/incremental-loading#choosing-a-write-disposition)
 
